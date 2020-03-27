@@ -1,0 +1,92 @@
+body {
+    text-align: center;
+    h1 {
+        color: rgba(8, 15, 251, 0.6);
+        background-color: rgba(255, 255, 255, 0.4);
+        width: 470px;
+        margin: 15px auto;
+        border-radius: 3px;
+        padding: 8px;
+    }
+}
+.top {
+    padding-top: 40px;
+    background-image: url("../img/nitish-meena-37745-unsplash.jpg");
+    object-fit: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.budget {
+    .budget__header {
+        width: 400px;
+        margin: 0 auto;
+        border-radius: 3px;
+        padding: 10px;
+    }
+
+    .budget__title {
+        font-size: 24px;
+
+    }
+    .budget__value {
+        padding: 25px 0 5px;
+        font-size: 32px;
+        font-weight: bold;
+
+    }
+    .budget__details {
+        display: inline-block;
+        padding: 20px 40px;
+        margin: 30px 0;
+        //box-shadow: 0 0 6px 1px rgba(130, 81, 71,0.5);
+    }
+    .budget__details:hover {
+        transition: ease-in 200ms;
+        transform: translate(0px,-2px);
+        box-shadow: 0 6px 12px 1px rgba(58, 58, 58, 0.5);
+    }
+}
+.budget__expenses,
+.budget__income {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 320px;
+    padding: 10px 40px;
+}
+.budget__income {
+    background-color: #b1bb7e;
+    color: white;
+}
+.budget__expenses {
+    background-color: #fd5e53;
+    margin-top: 13px;
+    color: white;
+}
+.right {
+    display: flex;
+    justify-content: space-between;
+    .budget__expenses__title,
+    .budget__income__title {
+        width: 120px;
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    .budget,
+    .budget__expenses,
+    .budget__header,
+    .budget__income {
+        width: 100% !important;
+        padding: 10px 0 !important;
+        margin: 0;
+    }
+    .budget__income--text,
+    .budegt__expenses--text,
+    .right {
+        padding: 0 10px;
+    }
+}

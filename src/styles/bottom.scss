@@ -1,0 +1,164 @@
+.bottom {
+    margin-top: 40px;
+}
+.add__container {
+    .add__description,
+    .add__value,
+    .add_btn,
+    .select--type {
+        border: 1px solid #e7e7e7;
+        height: 44px;
+        font-size: 18px;
+        color: inherit;
+        background-color: #fff;
+        margin-right: 10px;
+        font-weight: 300;
+        transition: border 0.3s;
+    }
+    .add__description,
+    .add__value {
+        padding: 0 25px;
+    }
+    .add__value {
+        width: 100px;
+    }
+    .add_btn,
+    .select--type {
+        width: 45px;
+        cursor: pointer;
+    }
+}
+.budegt__expenses,
+.budegt__income {
+    position: relative;
+    width: 49%;
+    .expenses__title,
+    .income__title {
+        padding: 4px 0;
+        color: white;
+        font-size: 32px;
+    }
+    .income__title {
+        background-color: #b1bb7e;
+    }
+    .expenses__title {
+        background-color: #fd5e53;
+    }
+
+}
+.budget__list {
+    margin-top: 26px;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0;
+    box-shadow: 3px 6px 6px 4px rgba(206, 206, 206, 0.7);
+}
+
+.budget__list,
+.income__list {
+    .item {
+        padding: 20px 30px !important;
+        margin: 8px 0;
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 0;
+        box-shadow: 0 0 6px 0 rgba(0,0,0,0.3);
+    }
+    .item__percentage,
+    .item__value {
+        padding-right: 10px !important;
+    }
+    .right {
+        align-items: center;
+    }
+}
+
+.item__delete {
+    button {
+        border: none;
+        padding: 4px;
+        cursor: pointer;
+        &:hover {
+            
+        }
+        i {
+            color: red;
+            font-size: 22px;
+        }
+        
+    }
+
+}
+
+@media (max-width: 768px) {
+    .budegt__expenses,
+    .budegt__income {
+    position: relative;
+    width: 98%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+    .budegt__income .income__title,
+    .budegt__expenses .expenses__title {
+        font-size: 24px;
+    }
+    .add__container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .add__container .add__description,
+    .add__container .add__value,
+    .add__container .add_btn,
+    .add__container .select--type {
+    font-size: 14px;
+    margin-right: 2px;
+    }
+
+    .add__container .add__description, .add__container .add__value {
+        padding: 0 5px;
+    }
+    .add__container .add__value {
+        width: 60px;
+    }
+
+    .budget .budget__details {
+        position: relative;
+        overflow: hidden;
+        width: 80%;
+        padding: 10px 0;
+        box-shadow: none;
+    }
+    .budget__list {
+        display: block !important;
+    }
+    .budget__list .item,
+    .income__list .item {
+        padding: 20px 0 !important;
+        width: 100% !important;
+    }
+    .item__delete , .item__description{
+        margin:  0 20px;
+    }
+    .ion-ios-checkmark-outline:before {
+        font-size: 22px;
+        color: green;
+    }
+}
+
+
+.fade-in {
+  animation: fadeIn ease 1s;
+  -webkit-animation: fadeIn ease 1s;
+  -moz-animation: fadeIn ease 1s;
+  -o-animation: fadeIn ease 1s;
+  -ms-animation: fadeIn ease 1s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
