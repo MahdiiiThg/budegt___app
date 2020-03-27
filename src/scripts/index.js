@@ -17,8 +17,9 @@ const controller = (function(budgetCtrl,UICtrl){
                 addItems()
             }
         })
-
         document.querySelector(DOM.container).addEventListener('click', ctrlDeletItem)
+
+        UICtrl.toggleTheme()
     }
     const updateBudget = () => {
         // Calc the budget
@@ -91,7 +92,8 @@ const controller = (function(budgetCtrl,UICtrl){
             })
             // updateBudget()
             SetupEventListeners()
-            
+            UICtrl.displayMonth()
+            UICtrl.toggleTheme()
         }
     }
 })(budgetController,UIControler)

@@ -14,9 +14,25 @@ const UIControler =(function () {
         PercentageLable: ".budget__expenses--percentage",
         deletBtn: ".item__delete--btn",
         container: ".budget__list",
-        itemPercentage: ".item__percentage"
+        itemPercentage: ".item__percentage",
+        currentMonth: ".budget__title__month",
+        toggleDark: ".toggle_dark"
     }
+    const formatNumber = (num,type) => {
+        var numSplit, int, dec, type;
 
+        num = Math.abs(num)
+        num = num.toFixed(2)
+
+        numSplit = num.split('.')
+        int = numSplit[0]
+        if(int.length > 3) {
+            int = int.substr(0, int.length - 3) + ',' + int.substr(int.length -3, 3)
+        }
+        dec = numSplit[1]
+
+        return (type === "exp" ? '-' : '+') + ' ' + int + '.' + dec;
+    }
     return {
         getInput: () => {
             return {
@@ -35,7 +51,7 @@ const UIControler =(function () {
                         <div class="item fade-in" id="inc-${obj.id}">
                             <div class="item__description">${obj.description}</div>
                             <div class="right clearfix">
-                                <div class="item__value">${obj.value} $</div>
+                                <div class="item__value">${formatNumber(obj.value)} $</div>
                                 <div class="item__delete">
                                     <button class="item__delete--btn"><i class="ion-ios-trash-outline"></i></button>
                                 </div>
@@ -47,7 +63,7 @@ const UIControler =(function () {
                 <div class="item fade-in" id="exp-${obj.id}">
                     <div class="item__description">${obj.description}</div>
                     <div class="right clearfix">
-                        <div class="item__value">${obj.value} $</div>
+                        <div class="item__value">${formatNumber(obj.value)} $</div>
                         <div class="item__percentage">10%</div>
                         <div class="item__delete">
                             <button class="item__delete--btn"><i class="ion-ios-trash-outline"></i>
@@ -75,7 +91,7 @@ const UIControler =(function () {
             fieldsArray[0].focus()
         },
         displayBudget: (obj) => {
-            document.querySelector(DOMStrings.budgetVal).textContent = obj.budget + " $"
+            document.querySelector(DOMStrings.budgetVal).textContent = formatNumber(obj.budget) + " $"
             document.querySelector(DOMStrings.incLable).textContent = obj.totalInc 
             document.querySelector(DOMStrings.expLable).textContent = obj.totalExp 
 
@@ -85,7 +101,23 @@ const UIControler =(function () {
                 document.querySelector(DOMStrings.PercentageLable).textContent = "---"
             }
         },
-        
+        displayMonth: () => {
+            var month= ["January","February","March","April","May","June","July",
+            "August","September","October","November","December"];
+
+            var d = new Date();
+            var curMonth = d.getMonth()
+            var curDay = d.getDay()
+
+            document.querySelector(DOMStrings.currentMonth).textContent = curDay + ' ' + month[curMonth] 
+
+        },
+        toggleTheme: () => {
+            var toggleSwtich = document.querySelector(DOMStrings.toggleDark)
+            toggleSwtich.checked = true
+            
+            
+        },
         getDOMStrings: function () {
             return DOMStrings
         }
