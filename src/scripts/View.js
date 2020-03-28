@@ -114,9 +114,10 @@ const UIControler =(function () {
         },
         toggleTheme: () => {
             var toggleSwtich = document.querySelector(DOMStrings.toggleDark)
-            toggleSwtich.checked = true
-            
-            
+            var f=  function(params) {
+                alert("hi")
+            }
+            toggleSwtich.setAttribute.onClick(f)
         },
         getDOMStrings: function () {
             return DOMStrings
