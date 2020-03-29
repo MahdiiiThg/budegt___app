@@ -5,8 +5,8 @@ var budgetController =(function () {
         this.value = value
         this.percentage = -1
     }
-    Expense.prototype.calcPercentage = (totalIncome) => {
-        debugger
+    Expense.prototype.calcPercentage = function(totalIncome) {
+        
         if (totalIncome > 0) {
             this.percentage = Math.round((this.value / totalIncome) * 100) 
         } else {
@@ -14,7 +14,7 @@ var budgetController =(function () {
         }
     }
 
-    Expense.prototype.getPercentage = () => {
+    Expense.prototype.getPercentage = function() {
         return this.percentage
     }
    
@@ -96,13 +96,13 @@ var budgetController =(function () {
             }
         },
        calculatePercentages: () => {
-           debugger
+           
            data.allItems.exp.forEach(function(cur){
                cur.calcPercentage(data.total.inc)
            })
        },
        getPercentages: () => {
-           debugger
+           
            var allPerc = data.allItems.exp.map(function(cur) {
                 return cur.getPercentage()
            })

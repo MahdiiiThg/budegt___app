@@ -19,7 +19,7 @@ const controller = (function(budgetCtrl,UICtrl){
         })
         document.querySelector(DOM.container).addEventListener('click', ctrlDeletItem)
 
-        UICtrl.toggleTheme()
+        document.querySelector(DOM.type).addEventListener('change' , UICtrl.changeType)
     }
     const updateBudget = () => {
         // Calc the budget
@@ -39,8 +39,8 @@ const controller = (function(budgetCtrl,UICtrl){
         // Get the % from controller
         percentages = budgetCtrl.getPercentages()
         // Update the UI
-        console.log(percentages);
-       // UICtrl.displayPercentages(percentages)
+        console.log("this is: "+percentages);
+        UICtrl.displayPercentages(percentages)
     }
     // ADD Item
     const addItems = () => {
