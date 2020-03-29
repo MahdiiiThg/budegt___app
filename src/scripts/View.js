@@ -16,7 +16,11 @@ const UIControler =(function () {
         container: ".budget__list",
         itemPercentage: ".item__percentage",
         currentMonth: ".budget__title__month",
-        toggleDark: ".toggle_dark"
+        toggleDark: ".toggle_dark",
+        topSec: ".top",
+        BottomSec: ".bottom",
+        singleItems: ".item ",
+        budgetList: ".budget__list"
     }
     const formatNumber = (num,type) => {
         var numSplit, int, dec, type;
@@ -33,6 +37,13 @@ const UIControler =(function () {
 
         return (type === "exp" ? '-' : '+') + ' ' + int + '.' + dec;
     }
+    // nodeListForEach
+    var nodeListForEach = function(list, callback){
+        for(var i = 0; i < list.length; i++){
+            callback(list[i], i)
+        }
+    }
+
     return {
         getInput: () => {
             return {
@@ -101,23 +112,52 @@ const UIControler =(function () {
                 document.querySelector(DOMStrings.PercentageLable).textContent = "---"
             }
         },
+        displayPercentages: (percentages) => {
+            var fields = document.querySelectorAll(DOMStrings.itemPercentage)
+
+           
+            nodeListForEach(fields ,function(current , index){
+                if(percentages[index] > 0){
+                    current.textContent = percentages[index] + " %"
+                } else {
+                    current.textContent = '---'
+                }
+            })
+        },
         displayMonth: () => {
             var month= ["January","February","March","April","May","June","July",
             "August","September","October","November","December"];
 
             var d = new Date();
             var curMonth = d.getMonth()
-            var curDay = d.getDay()
-
+            var curDay = d.getDate()
             document.querySelector(DOMStrings.currentMonth).textContent = curDay + ' ' + month[curMonth] 
 
         },
+        changeType: () => {
+            var fields = document.querySelectorAll(
+                DOMStrings.type + ", " +
+                DOMStrings.description + ", " +
+                DOMStrings.value
+            )
+
+            nodeListForEach(fields, function(cur){
+                cur.classList.toggle('red-focus');
+            })
+            document.querySelector(DOMStrings.addBtn).classList.toggle('red')
+        },
         toggleTheme: () => {
             var toggleSwtich = document.querySelector(DOMStrings.toggleDark)
-            var f=  function(params) {
-                alert("hi")
-            }
-            toggleSwtich.setAttribute.onClick(f)
+            toggleSwtich.addEventListener('change', function(){
+                //Body
+                document.querySelector("body").classList.toggle('body__dark')
+                //Top
+                document.querySelector(DOMStrings.topSec).classList.toggle('top__dark')
+                //Bottom
+               //document.querySelector(DOMStrings.BottomSec).classList.toggle('bottom__dark')
+               // budgetList
+               document.querySelector(DOMStrings.budgetList).classList.toggle('budget__list__dark')
+            })
         },
         getDOMStrings: function () {
             return DOMStrings

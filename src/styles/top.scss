@@ -1,5 +1,6 @@
 body {
     text-align: center;
+    height: 100vh;
     h1 {
         color: rgba(8, 15, 251, 0.6);
         background-color: rgba(255, 255, 255, 0.4);
@@ -73,6 +74,17 @@ body {
     }
 }
 
+// Dark Theme
+.body__dark {
+    
+    background: linear-gradient(226deg, #141f31 18%, #243a54 69%);
+    transition: ease-in 200ms;
+}
+.top__dark {
+    color: #ffffff;
+    background-image: none !important;
+}
+
 
 
 @media (max-width: 768px) {
@@ -91,6 +103,8 @@ body {
     }
 }
 
+
+// Dark Theme Switch
 .switch {
     position: relative;
     display: inline-block;
@@ -141,3 +155,8 @@ body {
     -ms-transform: translateX(26px);
     transform: translateX(26px);
   }
+
+  // change Type classes
+
+  .red {color: #FF5049 !important; }
+  .red-focus:focus {border: 1px solid #FF5049 !important; outline: none;}

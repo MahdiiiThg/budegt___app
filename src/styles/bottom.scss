@@ -1,5 +1,6 @@
 .bottom {
-    margin-top: 40px;
+    padding-top: 40px;
+    padding-bottom: 85px;
 }
 .add__container {
     .add__description,
@@ -9,7 +10,6 @@
         border: 1px solid #e7e7e7;
         height: 44px;
         font-size: 18px;
-        color: inherit;
         background-color: #fff;
         margin-right: 10px;
         font-weight: 300;
@@ -48,6 +48,7 @@
 }
 .budget__list {
     margin-top: 26px;
+    padding-bottom: 50px;
     display: flex;
     justify-content: space-around;
     padding: 20px 0;
@@ -57,6 +58,7 @@
 .budget__list,
 .income__list {
     .item {
+        background-color: #f0f1f4;
         padding: 20px 30px !important;
         margin: 8px 0;
         display: flex;
@@ -78,9 +80,7 @@
         border: none;
         padding: 4px;
         cursor: pointer;
-        &:hover {
-            
-        }
+        background-color: inherit;
         i {
             color: red;
             font-size: 22px;
@@ -89,12 +89,26 @@
     }
 
 }
+.add_btn {
+    color: #b1bb7e;
+}
+
+// Dark Theme
+.bottom__dark {
+    //color: #cf6679;
+    background: linear-gradient(180deg, rgba(53,54,58,1) 77%, rgba(255,255,255,1) 100%);
+    transition: ease-in 200ms;
+}
+.budget__list__dark {
+    box-shadow: none !important;
+    transition: ease-in 200ms;
+}
 
 @media (max-width: 768px) {
     .budegt__expenses,
     .budegt__income {
     position: relative;
-    width: 98%;
+    width: 90%;
     margin: 0 auto;
     margin-bottom: 10px;
 }
@@ -121,6 +135,10 @@
     .add__container .add__value {
         width: 60px;
     }
+    .add__container .add_btn, .add__container .select--type {
+        height: 46px;
+        
+    }
 
     .budget .budget__details {
         position: relative;
@@ -134,7 +152,9 @@
     }
     .budget__list .item,
     .income__list .item {
-        padding: 20px 0 !important;
+        border-radius: 3px;
+        padding: 10px 0 !important;
+        align-items: baseline;
         width: 100% !important;
     }
     .item__delete , .item__description{
